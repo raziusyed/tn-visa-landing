@@ -69,8 +69,9 @@ export default function WaitlistForm() {
           Thank you for joining our waitlist!
         </h3>
         <p className="mt-2 text-muted-foreground">
-          We'll notify you when we launch. In the meantime, check your email for
-          a confirmation.
+          We'll notify you when we launch. Please check your email for a
+          confirmation - it may take a few minutes to arrive. If you don't see
+          it, please check your junk folder.
         </p>
       </div>
     );
