@@ -1,82 +1,51 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import confetti from "canvas-confetti"
+import type React from "react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { handleFormSubmit } from "@/app/actions";
+import confetti from "canvas-confetti";
 
 export default function WaitlistForm() {
-  const [email, setEmail] = useState("")
-  const [userType, setUserType] = useState("seeker")
-  const [tnCategory, setTnCategory] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const tnCategories = [
-    { value: "computer-systems-analyst", label: "Computer Systems Analyst" },
-    { value: "engineer", label: "Engineer" },
-    { value: "scientific-technician", label: "Scientific Technician/Technologist" },
-    { value: "management-consultant", label: "Management Consultant" },
-    { value: "accountant", label: "Accountant" },
-    { value: "graphic-designer", label: "Graphic Designer" },
-    { value: "mathematician", label: "Mathematician" },
-    { value: "medical-professional", label: "Medical Professional" },
-    { value: "scientist", label: "Scientist" },
-    { value: "teacher", label: "Teacher" },
-    { value: "unknown", label: "I don't know" },
-  ]
-
-  const triggerConfetti = () => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-    })
-
-    // Fire a second batch for more effect
-    setTimeout(() => {
-      confetti({
-        particleCount: 50,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-      })
-    }, 250)
-
-    // And a third from the other side
-    setTimeout(() => {
-      confetti({
-        particleCount: 50,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-      })
-    }, 400)
-  }
-
-  useEffect(() => {
-    if (submitted) {
-      triggerConfetti()
+  const handleSubmit = async (formData: FormData) => {
+    setIsSubmitting(true);
+    setError(null);
+    try {
+      const result = await handleFormSubmit(formData);
+      if (result.success) {
+        setIsSubmitted(true);
+        // Trigger confetti on success
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+      } else {
+        setError(result.error || "Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setError("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
-  }, [submitted])
+  };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    setLoading(false)
-    setSubmitted(true)
-  }
-
-  if (submitted) {
+  if (isSubmitted) {
     return (
       <div className="rounded-lg border bg-card p-6 text-center shadow-lg">
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
@@ -96,24 +65,34 @@ export default function WaitlistForm() {
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
         </div>
-        <h3 className="text-xl font-medium">Thank you for joining our waitlist!</h3>
+        <h3 className="text-xl font-medium">
+          Thank you for joining our waitlist!
+        </h3>
         <p className="mt-2 text-muted-foreground">
-          We'll notify you when we launch. In the meantime, check your email for a confirmation.
+          We'll notify you when we launch. In the meantime, check your email for
+          a confirmation.
         </p>
       </div>
-    )
+    );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto max-w-md space-y-6 rounded-lg border bg-card p-6 shadow-lg">
+    <form
+      action={handleSubmit}
+      className="mx-auto max-w-md space-y-6 rounded-lg border bg-card p-6 shadow-lg"
+    >
+      {error && (
+        <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">
+          {error}
+        </div>
+      )}
       <div className="space-y-2">
         <Label htmlFor="email">Email address</Label>
         <Input
           id="email"
+          name="email"
           type="email"
           placeholder="you@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           required
           className="bg-background transition-all focus:border-primary focus:ring-1 focus:ring-primary"
         />
@@ -121,7 +100,11 @@ export default function WaitlistForm() {
 
       <div className="space-y-2">
         <Label>I am a:</Label>
-        <RadioGroup value={userType} onValueChange={setUserType} className="flex flex-col space-y-1">
+        <RadioGroup
+          name="userType"
+          defaultValue="seeker"
+          className="flex flex-col space-y-1"
+        >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="seeker" id="seeker" />
             <Label htmlFor="seeker" className="font-normal">
@@ -145,35 +128,49 @@ export default function WaitlistForm() {
 
       <div className="space-y-2">
         <Label htmlFor="tn-category">TN Visa Category</Label>
-        <Select value={tnCategory} onValueChange={setTnCategory}>
+        <Select name="tnCategory">
           <SelectTrigger className="bg-background transition-all focus:border-primary focus:ring-1 focus:ring-primary">
             <SelectValue placeholder="Select a TN category" />
           </SelectTrigger>
           <SelectContent className="bg-card border border-border shadow-lg">
-            {tnCategories.map((category) => (
-              <SelectItem key={category.value} value={category.value}>
-                {category.label}
-              </SelectItem>
-            ))}
+            <SelectItem value="computer-systems-analyst">
+              Computer Systems Analyst
+            </SelectItem>
+            <SelectItem value="engineer">Engineer</SelectItem>
+            <SelectItem value="scientific-technician">
+              Scientific Technician/Technologist
+            </SelectItem>
+            <SelectItem value="management-consultant">
+              Management Consultant
+            </SelectItem>
+            <SelectItem value="accountant">Accountant</SelectItem>
+            <SelectItem value="graphic-designer">Graphic Designer</SelectItem>
+            <SelectItem value="mathematician">Mathematician</SelectItem>
+            <SelectItem value="medical-professional">
+              Medical Professional
+            </SelectItem>
+            <SelectItem value="scientist">Scientist</SelectItem>
+            <SelectItem value="teacher">Teacher</SelectItem>
+            <SelectItem value="unknown">I don't know</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-xs text-muted-foreground">
-          Select the TN category that applies to you or "I don't know" if you're unsure.
+          Select the TN category that applies to you or "I don't know" if you're
+          unsure.
         </p>
       </div>
 
       <Button
         type="submit"
         className="w-full bg-primary text-white hover:bg-primary/90 transition-all shadow-md hover:shadow-lg hover:shadow-primary/30"
-        disabled={loading}
+        disabled={isSubmitting}
       >
-        {loading ? "Submitting..." : "Join Waitlist"}
+        {isSubmitting ? "Submitting..." : "Join Waitlist"}
       </Button>
 
       <p className="text-center text-xs text-muted-foreground">
         By joining, you agree to our Terms of Service and Privacy Policy.
       </p>
     </form>
-  )
+  );
 }
-
