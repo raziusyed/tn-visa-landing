@@ -6,7 +6,7 @@ export async function handleFormSubmit(formData: FormData) {
   const tnCategory = formData.get("tnCategory");
 
   try {
-    const response = await fetch("https://submit-form.com/WxUzpddyq", {
+    const response = await fetch(process.env.NEXT_PUBLIC_FORM_SUBMISSION_URL!, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
