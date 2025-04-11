@@ -93,18 +93,54 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-center space-y-6"
           >
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                TN Visa Experience
-              </span>
-              <br />
-              <span className="text-foreground">Tracker</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-lg">
-              Find US companies that have successfully hired professionals on TN
-              visas. Get insights into processing times, required documentation,
-              and more.
-            </p>
+            <div className="space-y-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex items-center gap-2"
+              >
+                <motion.h1
+                  className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/80"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  TN Connect
+                </motion.h1>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20,
+                    delay: 0.4,
+                  }}
+                  className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary"
+                >
+                  Beta
+                </motion.div>
+              </motion.div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-2xl sm:text-3xl font-medium text-muted-foreground"
+              >
+                Connect with TN Visa Professionals
+              </motion.h2>
+            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg leading-8 text-muted-foreground"
+            >
+              Join our community to find companies that sponsor TN visas, share
+              your experience, and connect with others navigating the TN visa
+              process.
+            </motion.p>
             <div className="flex flex-col gap-4 pt-4 sm:flex-row">
               <Button
                 size="lg"

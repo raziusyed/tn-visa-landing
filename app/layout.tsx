@@ -1,21 +1,22 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import Script from "next/script"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TN Visa Tracker",
-  description: "Find US companies that have hired professionals on TN visas",
-    generator: 'v0.dev'
-}
+  title: "TN Connect",
+  description:
+    "Connect with TN visa professionals and find companies that sponsor TN visas",
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="dark">
@@ -27,9 +28,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
 
-
-
-import './globals.css'
+import "./globals.css";

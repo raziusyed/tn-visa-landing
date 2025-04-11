@@ -345,11 +345,11 @@ export default function Features() {
           className="mx-auto max-w-3xl text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Everything you need for your TN Visa journey
+            Everything you need to connect with TN visa professionals
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Whether you're looking for a TN Visa opportunity or want to share
-            your experience, our platform has you covered.
+            Whether you're looking for a TN visa opportunity or want to share
+            your experience, TN Connect has you covered.
           </p>
         </motion.div>
 
