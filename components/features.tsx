@@ -21,6 +21,29 @@ export default function Features() {
     return () => clearInterval(interval);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
   const features = [
     {
       icon: "🔍",
@@ -318,7 +341,7 @@ export default function Features() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto max-w-3xl text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -330,35 +353,44 @@ export default function Features() {
           </p>
         </motion.div>
 
-        <div ref={containerRef} className="mt-16 space-y-12">
+        <motion.div
+          ref={containerRef}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-16 space-y-12"
+        >
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              variants={itemVariants}
               className="group relative overflow-hidden rounded-2xl border bg-card p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative flex flex-col md:flex-row gap-8 items-start">
-                <div className="flex-shrink-0">
+                <motion.div className="flex-shrink-0" variants={itemVariants}>
                   <div className="text-5xl mb-4 md:mb-0">{feature.icon}</div>
-                </div>
-                <div className="flex-grow">
+                </motion.div>
+                <motion.div className="flex-grow" variants={itemVariants}>
                   <h3 className="text-2xl font-medium mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground mb-4">
                     {feature.description}
                   </p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                  <motion.div
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+                    variants={itemVariants}
+                  >
                     {feature.highlight}
-                  </div>
-                  {feature.mockup}
-                </div>
+                  </motion.div>
+                  <motion.div variants={itemVariants}>
+                    {feature.mockup}
+                  </motion.div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
