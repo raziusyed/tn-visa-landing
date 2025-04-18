@@ -171,6 +171,7 @@ export default function Hero() {
               type="text"
               placeholder="Search by company, job title, port, or location..."
               className="w-full rounded-lg border bg-secondary px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              disabled
             />
           </div>
           {/* Filter mockups */}
