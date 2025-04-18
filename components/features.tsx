@@ -76,7 +76,7 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="py-16 md:py-24 bg-secondary">
+    <section id="features" className="py-16 md:py-24 bg-background">
       <div className="container">
         <motion.div
           initial={{ opacity: 0 }}
@@ -84,12 +84,11 @@ export default function Features() {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Everything you need to connect with TN visa professionals
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight sm:text-4xl">
+            Real TN Visa Experiences, From Real People
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Whether you're looking for a TN visa opportunity or want to share
-            your experience, TN Connect has you covered.
+            Powerful filters. Transparent data. Clean design.
           </p>
         </motion.div>
 
@@ -105,13 +104,13 @@ export default function Features() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative rounded-2xl border bg-card p-8"
+              className="group relative rounded-2xl border bg-card p-8 flex flex-col h-full"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 flex-1">
                 <div className="text-4xl">{feature.icon}</div>
                 <h3 className="text-2xl font-medium">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mt-auto">
                   {feature.highlight}
                 </div>
               </div>

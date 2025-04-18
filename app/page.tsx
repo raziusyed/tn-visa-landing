@@ -78,10 +78,18 @@ export default function LandingPage() {
       </header>
       <main className="flex-1">
         <Hero />
+        {/* Gradient divider between Hero and Features */}
+        <div className="relative h-24 w-full overflow-visible">
+          <div className="absolute left-1/3 top-0 w-1/3 h-full bg-primary/10 rounded-full blur-3xl opacity-50"></div>
+        </div>
         <Features />
+        {/* Gradient divider between Features and Waitlist */}
+        <div className="relative h-24 w-full overflow-visible">
+          <div className="absolute right-1/3 top-0 w-1/3 h-full bg-primary/10 rounded-full blur-3xl opacity-50"></div>
+        </div>
         <section
           id="waitlist"
-          className="bg-secondary py-16 md:py-24 relative overflow-hidden"
+          className="bg-background py-16 md:py-24 relative overflow-hidden"
         >
           {/* Background gradient elements */}
           <div className="absolute top-0 left-1/3 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 opacity-50"></div>
