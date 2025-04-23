@@ -37,41 +37,20 @@ export default function Features() {
         "Real-time search with filters for job titles, locations, and processing times",
     },
     {
-      icon: "🔒",
-      title: "Verified & Reliable Data",
+      icon: "📊",
+      title: "Data-Driven Insights & Updates",
       description:
-        "All information is verified and confidential. Your privacy is our top priority.",
-      highlight: "Data-driven insights from verified TN visa applications",
+        "Access valuable insights from real TN visa experiences with verified submissions and stay informed about the latest crossing experiences and processing times.",
+      highlight:
+        "Transparent verification system with regular updates on immigration policies",
     },
     {
       icon: "🤝",
-      title: "Share Your Experience",
+      title: "Community Connection",
       description:
-        "Help others while building your professional network. Your insights can guide future applicants.",
+        "Share your TN visa journey anonymously and connect with others who have successfully navigated the process to learn from their experiences.",
       highlight:
-        "Anonymous sharing to protect your privacy while helping others",
-    },
-    {
-      icon: "👥",
-      title: "Connect with Peers",
-      description:
-        "Join a community of TN professionals who understand your journey and can offer valuable advice.",
-      highlight:
-        "Private community for verified TN visa holders and applicants",
-    },
-    {
-      icon: "🔄",
-      title: "Real-time Updates",
-      description:
-        "Stay informed about the latest TN crossing experiences and processing times at different ports.",
-      highlight: "Regular updates to reflect the latest immigration policies",
-    },
-    {
-      icon: "📈",
-      title: "Career Growth Support",
-      description:
-        "Access resources and connections to help with future TN applications and career transitions.",
-      highlight: "Support for your long-term career development",
+        "Learn from and connect with professionals who share similar experiences",
     },
   ];
 
@@ -104,14 +83,22 @@ export default function Features() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative rounded-2xl border bg-card p-8 flex flex-col h-full"
+              whileHover={{ scale: 1.045 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative rounded-3xl border border-white/10 bg-card/90 backdrop-blur-lg shadow-xl hover:shadow-2xl transition-all duration-300 p-8 flex flex-col h-full overflow-hidden hover:border-primary/40"
             >
-              <div className="flex flex-col gap-4 flex-1">
-                <div className="text-4xl">{feature.icon}</div>
-                <h3 className="text-2xl font-medium">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mt-auto">
-                  {feature.highlight}
+              <div className="flex flex-col gap-4 flex-1 relative z-10">
+                <div className="mx-auto mb-2 flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border border-primary/30 shadow group-hover:bg-primary/30 transition duration-300 text-4xl">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl font-semibold tracking-tight text-white group-hover:text-primary transition-colors duration-300 text-center">
+                  {feature.title}
+                </h3>
+                <p className="text-base text-white/80 text-center">
+                  {feature.description}
+                </p>
+                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-white text-sm font-semibold shadow group-hover:shadow-lg transition-all duration-300 mt-auto mx-auto">
+                  <span className="drop-shadow-sm">{feature.highlight}</span>
                 </div>
               </div>
             </motion.div>
