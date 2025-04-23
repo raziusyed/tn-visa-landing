@@ -35,6 +35,7 @@ export default function Features() {
         "Find exactly what you need with precise filters for job titles, companies, locations, and processing times.",
       highlight:
         "Real-time search with filters for job titles, locations, and processing times",
+      colStart: "",
     },
     {
       icon: "📊",
@@ -43,6 +44,7 @@ export default function Features() {
         "Access valuable insights from real TN visa experiences with verified submissions and stay informed about the latest crossing experiences and processing times.",
       highlight:
         "Transparent verification system with regular updates on immigration policies",
+      colStart: "",
     },
     {
       icon: "📜",
@@ -51,6 +53,7 @@ export default function Features() {
         "Quickly verify if your job title qualifies for a TN visa and under which NAFTA/USMCA professional category it falls, based on real approval data.",
       highlight:
         "Instant verification of job title eligibility with category mapping",
+      colStart: "",
     },
     {
       icon: "🤝",
@@ -59,6 +62,15 @@ export default function Features() {
         "Share your TN visa journey anonymously and connect with others who have successfully navigated the process to learn from their experiences.",
       highlight:
         "Learn from and connect with professionals who share similar experiences",
+      colStart: "lg:col-start-2",
+    },
+    {
+      icon: "⚖️",
+      title: "Lawyer & Firm Connections",
+      description:
+        "Get connected with lawyers and immigration firms who have successfully handled TN cases matching your job title, category, and educational background.",
+      highlight: "Find professionals experienced with your unique TN case",
+      colStart: "md:col-start-2 lg:col-start-4",
     },
   ];
 
@@ -85,7 +97,7 @@ export default function Features() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-2"
+          className="mt-16 grid gap-8 md:grid-cols-4 lg:grid-cols-6"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -93,7 +105,8 @@ export default function Features() {
               variants={itemVariants}
               whileHover={{ scale: 1.045 }}
               whileTap={{ scale: 0.98 }}
-              className="group relative rounded-3xl border border-white/10 bg-card/90 backdrop-blur-lg shadow-xl hover:shadow-2xl transition-all duration-300 p-8 flex flex-col h-full overflow-hidden hover:border-primary/40"
+              className={`col-span-2 group relative rounded-3xl border border-white/10 bg-card/90 backdrop-blur-lg shadow-xl hover:shadow-2xl transition-all duration-300 p-8 flex flex-col h-full overflow-hidden hover:border-primary/40 ${feature.colStart}`}
+
             >
               <div className="flex flex-col gap-4 flex-1 relative z-10">
                 <div className="mx-auto mb-2 flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border border-primary/30 shadow group-hover:bg-primary/30 transition duration-300 text-4xl">
