@@ -152,6 +152,7 @@ export default function WaitlistForm() {
             </SelectItem>
             <SelectItem value="scientist">Scientist</SelectItem>
             <SelectItem value="teacher">Teacher</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
             <SelectItem value="unknown">I don't know</SelectItem>
           </SelectContent>
         </Select>
