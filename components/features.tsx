@@ -45,6 +45,14 @@ export default function Features() {
         "Transparent verification system with regular updates on immigration policies",
     },
     {
+      icon: "📜",
+      title: "Job Title Eligibility Check",
+      description:
+        "Quickly verify if your job title qualifies for a TN visa and under which NAFTA/USMCA professional category it falls, based on real approval data.",
+      highlight:
+        "Instant verification of job title eligibility with category mapping",
+    },
+    {
       icon: "🤝",
       title: "Community Connection",
       description:
@@ -77,7 +85,7 @@ export default function Features() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-2"
         >
           {features.map((feature, index) => (
             <motion.div
