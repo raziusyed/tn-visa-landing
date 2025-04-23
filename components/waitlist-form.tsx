@@ -171,7 +171,23 @@ export default function WaitlistForm() {
       </Button>
 
       <p className="text-center text-xs text-muted-foreground">
-        By joining, you agree to our Terms of Service and Privacy Policy.
+        By joining, you agree to our{' '}
+        <a
+          href="/terms-and-conditions"
+          className="underline hover:text-primary transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Terms and Conditions
+        </a>{' '}and{' '}
+        <a
+          href="/privacy-policy"
+          className="underline hover:text-primary transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>.
       </p>
     </form>
   );
