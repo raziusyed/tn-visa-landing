@@ -106,7 +106,6 @@ export default function Features() {
               whileHover={{ scale: 1.045 }}
               whileTap={{ scale: 0.98 }}
               className={`col-span-2 group relative rounded-3xl border border-white/10 bg-card/90 backdrop-blur-lg shadow-xl hover:shadow-2xl transition-all duration-300 p-8 flex flex-col h-full overflow-hidden hover:border-primary/40 ${feature.colStart}`}
-
             >
               <div className="flex flex-col gap-4 flex-1 relative z-10">
                 <div className="mx-auto mb-2 flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border border-primary/30 shadow group-hover:bg-primary/30 transition duration-300 text-4xl">
@@ -118,9 +117,9 @@ export default function Features() {
                 <p className="text-base text-white/80 text-center">
                   {feature.description}
                 </p>
-                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-white text-sm font-semibold shadow group-hover:shadow-lg transition-all duration-300 mt-auto mx-auto">
-                  <span className="drop-shadow-sm">{feature.highlight}</span>
-                </div>
+                <div className="shimmer-highlight shimmer-animate inline-flex items-center gap-2 px-7 py-1.5 rounded-full text-white text-xs font-medium shadow group-hover:shadow-lg transition-all duration-300 mt-auto mx-auto">
+  <span className="drop-shadow-sm whitespace-pre-line text-center">{feature.highlight}</span>
+</div>
               </div>
             </motion.div>
           ))}

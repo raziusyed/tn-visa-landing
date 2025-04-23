@@ -129,7 +129,7 @@ export default function Hero() {
           <div className="flex flex-col gap-4 pt-4 sm:flex-row justify-center">
             <Button
               size="lg"
-              className="bg-primary text-white hover:bg-primary/90 transition-all"
+              className="bg-primary text-white hover:bg-primary/90 transition-all shimmer-highlight shimmer-animate"
               asChild
             >
               <Link href="#waitlist" ref={waitlistRef}>

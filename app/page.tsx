@@ -66,7 +66,7 @@ export default function LandingPage() {
               Features
             </Link>
             <Button
-              className="bg-primary text-white hover:bg-primary/90 transition-all shadow-md hover:shadow-lg hover:shadow-primary/30"
+              className="bg-primary text-white hover:bg-primary/90 transition-all shimmer-highlight shimmer-animate shadow-md hover:shadow-lg hover:shadow-primary/30"
               asChild
             >
               <Link href="#waitlist" ref={waitlistNavRef}>

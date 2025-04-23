@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Shimmer effect for pills and buttons */
+.shimmer-highlight {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #2563eb, #3b82f6, #1e40af);
+}
+.shimmer-highlight > * {
+  position: relative;
+  z-index: 1;
+}
+.shimmer-animate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.group:hover .shimmer-animate::before,
+.group:focus-visible .shimmer-animate::before,
+.shimmer-animate:hover::before,
+.shimmer-animate:focus-visible::before {
+  opacity: 1;
+  animation: shimmer-move 1.5s linear infinite;
+}
+@keyframes shimmer-move {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
