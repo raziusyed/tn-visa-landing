@@ -33,8 +33,7 @@ export default function Features() {
       title: "Advanced Search & Filtering",
       description:
         "Find exactly what you need with precise filters for job titles, companies, locations, and processing times.",
-      highlight:
-        "Real-time search with filters for job titles, locations, and processing times",
+
       colStart: "",
     },
     {
@@ -42,8 +41,7 @@ export default function Features() {
       title: "Data-Driven Insights & Updates",
       description:
         "Access valuable insights from real TN visa experiences with verified submissions and stay informed about the latest crossing experiences and processing times.",
-      highlight:
-        "Transparent verification system with regular updates on immigration policies",
+
       colStart: "",
     },
     {
@@ -51,8 +49,7 @@ export default function Features() {
       title: "Job Title Eligibility Check",
       description:
         "Quickly verify if your job title qualifies for a TN visa and under which NAFTA/USMCA professional category it falls, based on real approval data.",
-      highlight:
-        "Instant verification of job title eligibility with category mapping",
+
       colStart: "",
     },
     {
@@ -60,8 +57,7 @@ export default function Features() {
       title: "Community Connection",
       description:
         "Share your TN visa journey anonymously and connect with others who have successfully navigated the process to learn from their experiences.",
-      highlight:
-        "Learn from and connect with professionals who share similar experiences",
+
       colStart: "lg:col-start-2",
     },
     {
@@ -69,13 +65,13 @@ export default function Features() {
       title: "Lawyer & Firm Connections",
       description:
         "Get connected with lawyers and immigration firms who have successfully handled TN cases matching your job title, category, and educational background.",
-      highlight: "Find professionals experienced with your unique TN case",
+
       colStart: "md:col-start-2 lg:col-start-4",
     },
   ];
 
   return (
-    <section id="features" className="py-16 md:py-24 bg-background">
+    <section id="features" className="py-8 md:py-12 bg-background">
       <div className="container">
         <motion.div
           initial={{ opacity: 0 }}
@@ -117,9 +113,7 @@ export default function Features() {
                 <p className="text-base text-white/80 text-center">
                   {feature.description}
                 </p>
-                <div className="shimmer-highlight shimmer-animate inline-flex items-center gap-2 px-7 py-1.5 rounded-full text-white text-xs font-medium shadow group-hover:shadow-lg transition-all duration-300 mt-auto mx-auto">
-  <span className="drop-shadow-sm whitespace-pre-line text-center">{feature.highlight}</span>
-</div>
+                
               </div>
             </motion.div>
           ))}
