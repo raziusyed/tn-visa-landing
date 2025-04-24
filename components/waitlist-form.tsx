@@ -80,7 +80,7 @@ export default function WaitlistForm() {
   return (
     <form
       action={handleSubmit}
-      className="mx-auto max-w-md space-y-6 rounded-lg border bg-card p-6 shadow-lg"
+      className="mx-auto max-w-md space-y-6 rounded-lg border bg-card p-6 shadow-lg mt-0"
     >
       {error && (
         <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">
