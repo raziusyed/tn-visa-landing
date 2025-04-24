@@ -71,7 +71,10 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="py-8 md:py-12 bg-background">
+    <section
+      id="features"
+      className="relative min-h-screen py-12 bg-background"
+    >
       <div className="container">
         <motion.div
           initial={{ opacity: 0 }}
@@ -113,7 +116,6 @@ export default function Features() {
                 <p className="text-base text-white/80 text-center">
                   {feature.description}
                 </p>
-                
               </div>
             </motion.div>
           ))}

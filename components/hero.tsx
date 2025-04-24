@@ -16,7 +16,6 @@ export default function Hero() {
     "Learn From Real Experiences",
     "Get the Latest Updates",
     "Make Informed Decisions",
-    "Join a Trusted Community",
   ];
 
   // Effect hook to handle smooth scrolling functionality
@@ -27,63 +26,6 @@ export default function Hero() {
 
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    // Function to handle click events and perform smooth scrolling
-    const handleClick = (
-      e: MouseEvent,
-      ref: React.RefObject<HTMLAnchorElement>
-    ) => {
-      // Prevent default anchor behavior
-      e.preventDefault();
-
-      // Get the target section's ID from the href attribute
-      const href = ref.current?.getAttribute("href");
-      if (href) {
-        // Find the target element in the DOM
-        const targetElement = document.querySelector(href);
-        if (targetElement) {
-          // Smoothly scroll to the target element with a 100px offset from the top
-          window.scrollTo({
-            top:
-              targetElement.getBoundingClientRect().top + window.scrollY - 100,
-            behavior: "smooth",
-          });
-        }
-      }
-    };
-
-    // Get references to the DOM elements
-    const waitlistEl = waitlistRef.current;
-    const featuresEl = featuresRef.current;
-
-    // Add click event listeners to both navigation links
-    if (waitlistEl) {
-      waitlistEl.addEventListener("click", (e) =>
-        handleClick(e, waitlistRef as React.RefObject<HTMLAnchorElement>)
-      );
-    }
-
-    if (featuresEl) {
-      featuresEl.addEventListener("click", (e) =>
-        handleClick(e, featuresRef as React.RefObject<HTMLAnchorElement>)
-      );
-    }
-
-    // Cleanup function to remove event listeners when component unmounts
-    return () => {
-      if (waitlistEl) {
-        waitlistEl.removeEventListener("click", (e) =>
-          handleClick(e, waitlistRef as React.RefObject<HTMLAnchorElement>)
-        );
-      }
-      if (featuresEl) {
-        featuresEl.removeEventListener("click", (e) =>
-          handleClick(e, featuresRef as React.RefObject<HTMLAnchorElement>)
-        );
-      }
-    };
-  }, []); // Empty dependency array means this effect runs once on mount
 
   return (
     /* Hero section with gradient background and animated elements */
