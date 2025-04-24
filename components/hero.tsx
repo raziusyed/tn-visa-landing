@@ -159,9 +159,9 @@ export default function Hero() {
       >
         <div className="relative lg:max-w-7xl w-full rounded-xl border bg-card/50 p-4 sm:p-8">
           {/* Card header */}
-          <div className="mb-6 flex items-center justify-between">
+          <div className="mb-6 flex gap-4 items-center justify-between">
             <h3 className="text-2xl font-semibold">Latest Experiences</h3>
-            <span className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
+            <span className="rounded-full text-center bg-primary/10 px-4 py-3 text-sm text-primary">
               Real-time updates
             </span>
           </div>
@@ -175,7 +175,7 @@ export default function Hero() {
             />
           </div>
           {/* Filter mockups */}
-          <div className="flex flex-row justify-start gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row justify-start gap-4 mb-4">
             {/* Category filter mockup */}
             <div className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 shadow-sm">
               <label
@@ -186,7 +186,7 @@ export default function Hero() {
               </label>
               <select
                 id="category-filter"
-                className="rounded-md border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                className="rounded-md w-full border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 disabled
               >
                 <option>All</option>
@@ -205,7 +205,7 @@ export default function Hero() {
               </label>
               <select
                 id="status-filter"
-                className="rounded-md border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                className="rounded-md w-full border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 disabled
               >
                 <option>All</option>
@@ -236,7 +236,7 @@ export default function Hero() {
                     Status
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Time Ago
+                    Crossed
                   </th>
                 </tr>
               </thead>
