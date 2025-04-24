@@ -171,7 +171,7 @@ export default function WaitlistForm() {
       </Button>
 
       <p className="text-center text-xs text-muted-foreground">
-        By joining, you agree to our{' '}
+        By joining, you agree to our{" "}
         <a
           href="/terms-and-conditions"
           className="underline hover:text-primary transition-colors"
@@ -179,7 +179,8 @@ export default function WaitlistForm() {
           rel="noopener noreferrer"
         >
           Terms and Conditions
-        </a>{' '}and{' '}
+        </a>{" "}
+        and{" "}
         <a
           href="/privacy-policy"
           className="underline hover:text-primary transition-colors"
@@ -187,7 +188,18 @@ export default function WaitlistForm() {
           rel="noopener noreferrer"
         >
           Privacy Policy
-        </a>.
+        </a>
+        .
+      </p>
+      <p className="text-xs text-muted-foreground mt-1">
+        Have questions? Reach out at{" "}
+        <a
+          href="mailto:hello@tnconnect.fyi"
+          className="underline hover:text-primary transition-colors"
+        >
+          hello@tnconnect.fyi
+        </a>
+        .
       </p>
     </form>
   );
