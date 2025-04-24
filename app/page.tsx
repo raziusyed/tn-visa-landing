@@ -55,8 +55,10 @@ export default function LandingPage() {
       <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold">TN Connect</span>
-          </div>
+  <Link href="/" className="text-xl font-bold hover:text-primary transition-colors">
+    TN Connect
+  </Link>
+</div>
           <nav className="flex items-center space-x-6">
             <Link
               href="#features"
@@ -83,21 +85,16 @@ export default function LandingPage() {
           <div className="absolute left-1/3 top-0 w-1/3 h-full bg-primary/10 rounded-full blur-3xl opacity-50"></div>
         </div>
         <Features />
-        {/* Gradient divider between Features and Waitlist */}
-        <div className="relative h-24 w-full overflow-visible">
-          <div className="absolute right-1/3 top-0 w-1/3 h-full bg-primary/10 rounded-full blur-3xl opacity-50"></div>
-        </div>
         <section
           id="waitlist"
           className="bg-background py-16 md:py-24 relative overflow-hidden"
         >
           {/* Background gradient elements */}
-          <div className="absolute top-0 left-1/3 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 opacity-50"></div>
           <div className="absolute bottom-0 right-1/3 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl translate-y-1/2 opacity-50"></div>
 
           <div className="container relative z-10">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight sm:text-4xl">
                 Join our waitlist
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
