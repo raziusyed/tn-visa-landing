@@ -64,6 +64,17 @@ export default function Navbar() {
               Join waitlist
             </a>
           </Button>
+          <div className="relative">
+            <span className="absolute -top-2 -right-6 bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md animate-pulse">
+              NEW
+            </span>
+            <a
+              href="/experiences"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              Experiences
+            </a>
+          </div>
         </nav>
       </div>
     </header>
