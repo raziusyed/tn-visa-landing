@@ -163,16 +163,19 @@ export default function Hero() {
               <thead>
                 <tr className="bg-muted/60">
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Job Title
+                    Nationality
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Company
+                    TN Category
+                  </th>
+                  <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
+                    Job Title
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
                     Port of Entry
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Location
+                    Entry Experience
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
                     Status
@@ -180,96 +183,134 @@ export default function Hero() {
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
                     Crossed
                   </th>
+                  <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
+                    Processing Time
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {[
                   {
-                    title: "Computer Systems Analyst",
-                    company: "Microsoft",
-                    port: "Toronto Pearson Intl Airport",
-                    location: "Toronto, ON",
+                    nationality: "🇨🇦",
+                    tnCategory: "Engineer",
+                    jobTitle: "Software Engineer",
+                    portOfEntry: "Toronto Pearson Intl Airport",
+                    entryExperience: "👍",
                     status: "Approved",
-                    timeAgo: "1 week ago",
+                    crossed: "2025-04-15",
+                    processingTime: "1 hour",
                   },
                   {
-                    title: "Mechanical Engineer",
-                    company: "Tesla",
-                    port: "Laredo Border Crossing",
-                    location: "Laredo, TX",
+                    nationality: "🇲🇽",
+                    tnCategory: "Analyst",
+                    jobTitle: "Data Analyst",
+                    portOfEntry: "Laredo Border Crossing",
+                    entryExperience: "👍",
                     status: "Approved",
-                    timeAgo: "3 days ago",
+                    crossed: "2025-04-14",
+                    processingTime: "2 hours",
                   },
                   {
-                    title: "Management Consultant",
-                    company: "McKinsey & Company",
-                    port: "San Ysidro Border",
-                    location: "San Diego, CA",
-                    status: "Approved",
-                    timeAgo: "2 weeks ago",
-                  },
-                  {
-                    title: "Software Developer",
-                    company: "Shopify",
-                    port: "Vancouver Intl Airport",
-                    location: "Vancouver, BC",
-                    status: "Approved",
-                    timeAgo: "5 days ago",
-                  },
-                  {
-                    title: "Civil Engineer",
-                    company: "AECOM",
-                    port: "Buffalo Niagara Intl Airport",
-                    location: "Buffalo, NY",
+                    nationality: "🇨🇦",
+                    tnCategory: "Consultant",
+                    jobTitle: "Management Consultant",
+                    portOfEntry: "San Ysidro Border",
+                    entryExperience: "👎",
                     status: "Pending",
-                    timeAgo: "2 days ago",
+                    crossed: "2025-04-13",
+                    processingTime: "N/A",
                   },
                   {
-                    title: "Data Analyst",
-                    company: "Google",
-                    port: "Detroit Windsor Tunnel",
-                    location: "Detroit, MI",
+                    nationality: "🇨🇦",
+                    tnCategory: "Developer",
+                    jobTitle: "Software Developer",
+                    portOfEntry: "Vancouver Intl Airport",
+                    entryExperience: "👍",
+                    status: "Approved",
+                    crossed: "2025-04-12",
+                    processingTime: "45 min",
+                  },
+                  {
+                    nationality: "🇲🇽",
+                    tnCategory: "Engineer",
+                    jobTitle: "Civil Engineer",
+                    portOfEntry: "Buffalo Niagara Intl Airport",
+                    entryExperience: "👎",
+                    status: "Approved",
+                    crossed: "2025-04-11",
+                    processingTime: "1.5 hours",
+                  },
+                  {
+                    nationality: "🇨🇦",
+                    tnCategory: "Accountant",
+                    jobTitle: "Accountant",
+                    portOfEntry: "JFK Intl Airport",
+                    entryExperience: "👍",
+                    status: "Approved",
+                    crossed: "2025-04-10",
+                    processingTime: "1 hour",
+                  },
+                  {
+                    nationality: "🇲🇽",
+                    tnCategory: "Designer",
+                    jobTitle: "Graphic Designer",
+                    portOfEntry: "Miami Intl Airport",
+                    entryExperience: "👍",
+                    status: "Pending",
+                    crossed: "2025-04-09",
+                    processingTime: "N/A",
+                  },
+                  {
+                    nationality: "🇨🇦",
+                    tnCategory: "Scientist",
+                    jobTitle: "Research Scientist",
+                    portOfEntry: "Seattle Tacoma Intl Airport",
+                    entryExperience: "👍",
+                    status: "Approved",
+                    crossed: "2025-04-08",
+                    processingTime: "2 hours",
+                  },
+                  {
+                    nationality: "🇲🇽",
+                    tnCategory: "Analyst",
+                    jobTitle: "Financial Analyst",
+                    portOfEntry: "Detroit Windsor Tunnel",
+                    entryExperience: "👎",
                     status: "Denied",
-                    timeAgo: "4 days ago",
+                    crossed: "2025-04-07",
+                    processingTime: "N/A",
                   },
                   {
-                    title: "Accountant",
-                    company: "KPMG",
-                    port: "Blaine Peace Arch",
-                    location: "Blaine, WA",
+                    nationality: "🇨🇦",
+                    tnCategory: "Engineer",
+                    jobTitle: "Mechanical Engineer",
+                    portOfEntry: "Blaine Peace Arch",
+                    entryExperience: "👍",
                     status: "Approved",
-                    timeAgo: "3 weeks ago",
-                  },
-                  {
-                    title: "Graphic Designer",
-                    company: "Adobe",
-                    port: "Miami Intl Airport",
-                    location: "Miami, FL",
-                    status: "Approved",
-                    timeAgo: "1 day ago",
-                  },
-                  {
-                    title: "Financial Analyst",
-                    company: "Goldman Sachs",
-                    port: "JFK Intl Airport",
-                    location: "New York, NY",
-                    status: "Pending",
-                    timeAgo: "6 hours ago",
-                  },
-                  {
-                    title: "Research Scientist",
-                    company: "Pfizer",
-                    port: "Seattle Tacoma Intl Airport",
-                    location: "Seattle, WA",
-                    status: "Approved",
-                    timeAgo: "2 days ago",
+                    crossed: "2025-04-06",
+                    processingTime: "1 hour",
                   },
                 ].map((exp, i) => (
                   <tr key={i} className="hover:bg-muted/40 transition-colors">
-                    <td className="px-4 py-3 font-medium">{exp.title}</td>
-                    <td className="px-4 py-3">{exp.company}</td>
-                    <td className="px-4 py-3">{exp.port}</td>
-                    <td className="px-4 py-3">{exp.location}</td>
+                    <td className="px-4 py-3 text-center align-middle">
+                      <span className="flex items-center justify-center text-2xl">
+                        {exp.nationality}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">{exp.tnCategory}</td>
+                    <td className="px-4 py-3">{exp.jobTitle}</td>
+                    <td className="px-4 py-3">{exp.portOfEntry}</td>
+                    <td className="px-4 py-3 text-center align-middle">
+                      {exp.entryExperience === "👍" ? (
+                        <div className="mx-auto flex items-center justify-center w-8 h-8 rounded-full bg-green-100/20 border border-green-300/30 shadow">
+                          👍
+                        </div>
+                      ) : (
+                        <div className="mx-auto flex items-center justify-center w-8 h-8 rounded-full bg-red-100/20 border border-red-300/30 shadow">
+                          👎
+                        </div>
+                      )}
+                    </td>
                     <td className="px-4 py-3">
                       <span
                         className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
@@ -283,9 +324,10 @@ export default function Hero() {
                         {exp.status}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-xs text-muted-foreground">
-                      {exp.timeAgo}
+                    <td className="px-4 py-3 text-center align-middle">
+                      {exp.crossed}
                     </td>
+                    <td className="px-4 py-3">{exp.processingTime}</td>
                   </tr>
                 ))}
               </tbody>
