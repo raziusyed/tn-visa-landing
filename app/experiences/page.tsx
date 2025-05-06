@@ -2,111 +2,115 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { api } from "@/convex/_generated/api";
+import { useQuery } from "convex/react";
 
 export default function ExperiencesPage() {
   // Mock data similar to hero.tsx
-  const experiences = [
-    {
-      nationality: "🇨🇦",
-      tnCategory: "Engineer",
-      jobTitle: "Software Engineer",
-      portOfEntry: "Toronto Pearson Intl Airport",
-      entryExperience: "up",
-      status: "Approved",
-      crossed: "2025-04-15",
-      processingTime: "1 hour",
-    },
-    {
-      nationality: "🇲🇽",
-      tnCategory: "Analyst",
-      jobTitle: "Data Analyst",
-      portOfEntry: "Laredo Border Crossing",
-      entryExperience: "up",
-      status: "Approved",
-      crossed: "2025-04-14",
-      processingTime: "2 hours",
-    },
-    {
-      nationality: "🇨🇦",
-      tnCategory: "Consultant",
-      jobTitle: "Management Consultant",
-      portOfEntry: "San Ysidro Border",
-      entryExperience: "down",
-      status: "Pending",
-      crossed: "2025-04-13",
-      processingTime: "N/A",
-    },
-    {
-      nationality: "🇨🇦",
-      tnCategory: "Developer",
-      jobTitle: "Software Developer",
-      portOfEntry: "Vancouver Intl Airport",
-      entryExperience: "up",
-      status: "Approved",
-      crossed: "2025-04-12",
-      processingTime: "45 min",
-    },
-    {
-      nationality: "🇲🇽",
-      tnCategory: "Engineer",
-      jobTitle: "Civil Engineer",
-      portOfEntry: "Buffalo Niagara Intl Airport",
-      entryExperience: "down",
-      status: "Approved",
-      crossed: "2025-04-11",
-      processingTime: "1.5 hours",
-    },
-    {
-      nationality: "🇨🇦",
-      tnCategory: "Accountant",
-      jobTitle: "Accountant",
-      portOfEntry: "JFK Intl Airport",
-      entryExperience: "up",
-      status: "Approved",
-      crossed: "2025-04-10",
-      processingTime: "1 hour",
-    },
-    {
-      nationality: "🇲🇽",
-      tnCategory: "Designer",
-      jobTitle: "Graphic Designer",
-      portOfEntry: "Miami Intl Airport",
-      entryExperience: "up",
-      status: "Pending",
-      crossed: "2025-04-09",
-      processingTime: "N/A",
-    },
-    {
-      nationality: "🇨🇦",
-      tnCategory: "Scientist",
-      jobTitle: "Research Scientist",
-      portOfEntry: "Seattle Tacoma Intl Airport",
-      entryExperience: "up",
-      status: "Approved",
-      crossed: "2025-04-08",
-      processingTime: "2 hours",
-    },
-    {
-      nationality: "🇲🇽",
-      tnCategory: "Analyst",
-      jobTitle: "Financial Analyst",
-      portOfEntry: "Detroit Windsor Tunnel",
-      entryExperience: "down",
-      status: "Denied",
-      crossed: "2025-04-07",
-      processingTime: "N/A",
-    },
-    {
-      nationality: "🇨🇦",
-      tnCategory: "Engineer",
-      jobTitle: "Mechanical Engineer",
-      portOfEntry: "Blaine Peace Arch",
-      entryExperience: "up",
-      status: "Approved",
-      crossed: "2025-04-06",
-      processingTime: "1 hour",
-    },
-  ];
+  // const experiences = [
+  //   {
+  //     nationality: "🇨🇦",
+  //     tnCategory: "Engineer",
+  //     jobTitle: "Software Engineer",
+  //     portOfEntry: "Toronto Pearson Intl Airport",
+  //     entryExperience: "up",
+  //     status: "Approved",
+  //     crossed: "2025-04-15",
+  //     processingTime: "1 hour",
+  //   },
+  //   {
+  //     nationality: "🇲🇽",
+  //     tnCategory: "Analyst",
+  //     jobTitle: "Data Analyst",
+  //     portOfEntry: "Laredo Border Crossing",
+  //     entryExperience: "up",
+  //     status: "Approved",
+  //     crossed: "2025-04-14",
+  //     processingTime: "2 hours",
+  //   },
+  //   {
+  //     nationality: "🇨🇦",
+  //     tnCategory: "Consultant",
+  //     jobTitle: "Management Consultant",
+  //     portOfEntry: "San Ysidro Border",
+  //     entryExperience: "down",
+  //     status: "Pending",
+  //     crossed: "2025-04-13",
+  //     processingTime: "N/A",
+  //   },
+  //   {
+  //     nationality: "🇨🇦",
+  //     tnCategory: "Developer",
+  //     jobTitle: "Software Developer",
+  //     portOfEntry: "Vancouver Intl Airport",
+  //     entryExperience: "up",
+  //     status: "Approved",
+  //     crossed: "2025-04-12",
+  //     processingTime: "45 min",
+  //   },
+  //   {
+  //     nationality: "🇲🇽",
+  //     tnCategory: "Engineer",
+  //     jobTitle: "Civil Engineer",
+  //     portOfEntry: "Buffalo Niagara Intl Airport",
+  //     entryExperience: "down",
+  //     status: "Approved",
+  //     crossed: "2025-04-11",
+  //     processingTime: "1.5 hours",
+  //   },
+  //   {
+  //     nationality: "🇨🇦",
+  //     tnCategory: "Accountant",
+  //     jobTitle: "Accountant",
+  //     portOfEntry: "JFK Intl Airport",
+  //     entryExperience: "up",
+  //     status: "Approved",
+  //     crossed: "2025-04-10",
+  //     processingTime: "1 hour",
+  //   },
+  //   {
+  //     nationality: "🇲🇽",
+  //     tnCategory: "Designer",
+  //     jobTitle: "Graphic Designer",
+  //     portOfEntry: "Miami Intl Airport",
+  //     entryExperience: "up",
+  //     status: "Pending",
+  //     crossed: "2025-04-09",
+  //     processingTime: "N/A",
+  //   },
+  //   {
+  //     nationality: "🇨🇦",
+  //     tnCategory: "Scientist",
+  //     jobTitle: "Research Scientist",
+  //     portOfEntry: "Seattle Tacoma Intl Airport",
+  //     entryExperience: "up",
+  //     status: "Approved",
+  //     crossed: "2025-04-08",
+  //     processingTime: "2 hours",
+  //   },
+  //   {
+  //     nationality: "🇲🇽",
+  //     tnCategory: "Analyst",
+  //     jobTitle: "Financial Analyst",
+  //     portOfEntry: "Detroit Windsor Tunnel",
+  //     entryExperience: "down",
+  //     status: "Denied",
+  //     crossed: "2025-04-07",
+  //     processingTime: "N/A",
+  //   },
+  //   {
+  //     nationality: "🇨🇦",
+  //     tnCategory: "Engineer",
+  //     jobTitle: "Mechanical Engineer",
+  //     portOfEntry: "Blaine Peace Arch",
+  //     entryExperience: "up",
+  //     status: "Approved",
+  //     crossed: "2025-04-06",
+  //     processingTime: "1 hour",
+  //   },
+  // ];
+
+  const experiences = useQuery(api.experiences.get);
 
   return (
     <section className="min-h-screen flex items-center justify-center">
@@ -204,7 +208,7 @@ export default function ExperiencesPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
-                {experiences.map((exp, i) => (
+                {experiences?.map((exp, i) => (
                   <tr key={i} className="hover:bg-muted/40 transition-colors">
                     <td
                       className="px-4 py-3 text-center align-middle"
@@ -232,8 +236,8 @@ export default function ExperiencesPage() {
                           exp.status === "Approved"
                             ? "bg-green-100 text-green-800"
                             : exp.status === "Pending"
-                            ? "bg-yellow-100 text-yellow-800"
-                            : "bg-red-100 text-red-800"
+                              ? "bg-yellow-100 text-yellow-800"
+                              : "bg-red-100 text-red-800"
                         }`}
                       >
                         {exp.status}

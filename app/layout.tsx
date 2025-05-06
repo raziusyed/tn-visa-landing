@@ -6,6 +6,7 @@ import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/react";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,10 +31,12 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
-        <Analytics />
+        <ConvexClientProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <Analytics />
+        </ConvexClientProvider>
       </body>
     </html>
   );
