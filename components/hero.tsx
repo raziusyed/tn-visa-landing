@@ -111,7 +111,7 @@ export default function Hero() {
           <div className="mb-6">
             <input
               type="text"
-              placeholder="Search by company, job title, port, or location..."
+              placeholder="Search by company, job title, port, or status..."
               className="w-full rounded-lg border bg-secondary px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               disabled
             />
@@ -175,9 +175,6 @@ export default function Hero() {
                     Port of Entry
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Entry Experience
-                  </th>
-                  <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
                     Status
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
@@ -195,50 +192,45 @@ export default function Hero() {
                     tnCategory: "Engineer",
                     jobTitle: "Software Engineer",
                     portOfEntry: "Toronto Pearson Intl Airport",
-                    entryExperience: "👍",
                     status: "Approved",
                     crossed: "2025-04-15",
-                    processingTime: "1 hour",
+                    processingTime: 1,
                   },
                   {
                     nationality: "🇲🇽",
                     tnCategory: "Analyst",
                     jobTitle: "Data Analyst",
                     portOfEntry: "Laredo Border Crossing",
-                    entryExperience: "👍",
                     status: "Approved",
                     crossed: "2025-04-14",
-                    processingTime: "2 hours",
+                    processingTime: 2,
                   },
                   {
                     nationality: "🇨🇦",
                     tnCategory: "Consultant",
                     jobTitle: "Management Consultant",
                     portOfEntry: "San Ysidro Border",
-                    entryExperience: "👎",
                     status: "Pending",
                     crossed: "2025-04-13",
-                    processingTime: "N/A",
+                    processingTime: 3,
                   },
                   {
                     nationality: "🇨🇦",
                     tnCategory: "Developer",
                     jobTitle: "Software Developer",
                     portOfEntry: "Vancouver Intl Airport",
-                    entryExperience: "👍",
                     status: "Approved",
                     crossed: "2025-04-12",
-                    processingTime: "45 min",
+                    processingTime: 1,
                   },
                   {
                     nationality: "🇲🇽",
                     tnCategory: "Engineer",
                     jobTitle: "Civil Engineer",
                     portOfEntry: "Buffalo Niagara Intl Airport",
-                    entryExperience: "👎",
                     status: "Approved",
                     crossed: "2025-04-11",
-                    processingTime: "1.5 hours",
+                    processingTime: 2,
                   },
                   {
                     nationality: "🇨🇦",
@@ -248,47 +240,43 @@ export default function Hero() {
                     entryExperience: "👍",
                     status: "Approved",
                     crossed: "2025-04-10",
-                    processingTime: "1 hour",
+                    processingTime: 1,
                   },
                   {
                     nationality: "🇲🇽",
                     tnCategory: "Designer",
                     jobTitle: "Graphic Designer",
                     portOfEntry: "Miami Intl Airport",
-                    entryExperience: "👍",
                     status: "Pending",
                     crossed: "2025-04-09",
-                    processingTime: "N/A",
+                    processingTime: 1,
                   },
                   {
                     nationality: "🇨🇦",
                     tnCategory: "Scientist",
                     jobTitle: "Research Scientist",
                     portOfEntry: "Seattle Tacoma Intl Airport",
-                    entryExperience: "👍",
                     status: "Approved",
                     crossed: "2025-04-08",
-                    processingTime: "2 hours",
+                    processingTime: 2,
                   },
                   {
                     nationality: "🇲🇽",
                     tnCategory: "Analyst",
                     jobTitle: "Financial Analyst",
                     portOfEntry: "Detroit Windsor Tunnel",
-                    entryExperience: "👎",
                     status: "Denied",
                     crossed: "2025-04-07",
-                    processingTime: "N/A",
+                    processingTime: 2,
                   },
                   {
                     nationality: "🇨🇦",
                     tnCategory: "Engineer",
                     jobTitle: "Mechanical Engineer",
                     portOfEntry: "Blaine Peace Arch",
-                    entryExperience: "👍",
                     status: "Approved",
                     crossed: "2025-04-06",
-                    processingTime: "1 hour",
+                    processingTime: 1,
                   },
                 ].map((exp, i) => (
                   <tr key={i} className="hover:bg-muted/40 transition-colors">
@@ -300,25 +288,15 @@ export default function Hero() {
                     <td className="px-4 py-3">{exp.tnCategory}</td>
                     <td className="px-4 py-3">{exp.jobTitle}</td>
                     <td className="px-4 py-3">{exp.portOfEntry}</td>
-                    <td className="px-4 py-3 text-center align-middle">
-                      {exp.entryExperience === "👍" ? (
-                        <div className="mx-auto flex items-center justify-center w-8 h-8 rounded-full bg-green-100/20 border border-green-300/30 shadow">
-                          👍
-                        </div>
-                      ) : (
-                        <div className="mx-auto flex items-center justify-center w-8 h-8 rounded-full bg-red-100/20 border border-red-300/30 shadow">
-                          👎
-                        </div>
-                      )}
-                    </td>
+
                     <td className="px-4 py-3">
                       <span
                         className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
                           exp.status === "Approved"
                             ? "bg-green-100 text-green-800"
                             : exp.status === "Pending"
-                            ? "bg-yellow-100 text-yellow-800"
-                            : "bg-red-100 text-red-800"
+                              ? "bg-yellow-100 text-yellow-800"
+                              : "bg-red-100 text-red-800"
                         }`}
                       >
                         {exp.status}
@@ -327,7 +305,9 @@ export default function Hero() {
                     <td className="px-4 py-3 text-center align-middle">
                       {exp.crossed}
                     </td>
-                    <td className="px-4 py-3">{exp.processingTime}</td>
+                    <td className="px-4 py-3 text-center align-middle">
+                      {exp.processingTime !== null ? exp.processingTime : "-"}
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -127,54 +127,56 @@ export default function ExperiencesPage() {
           </div>
           {/* Search input */}
           {/* <div className="mb-6">
-          <input
-            type="text"
-            placeholder="Search by company, job title, port, or location..."
-            className="w-full rounded-lg border bg-secondary px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-            disabled
-          />
-        </div> */}
+            <input
+              type="text"
+              placeholder="Search by company, job title, port, or status..."
+              className="w-full rounded-lg border bg-secondary px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              disabled
+            />
+          </div> */}
           {/* Filter mockups */}
           {/* <div className="flex flex-col sm:flex-row justify-start gap-4 mb-4"> */}
           {/* Category filter mockup */}
-          {/* <div className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 shadow-sm">
-            <label
-              htmlFor="category-filter"
-              className="text-sm font-medium text-muted-foreground"
-            >
-              Category:
-            </label>
-            <select
-              id="category-filter"
-              className="rounded-md w-full border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-              disabled
-            >
-              <option>All</option>
-              <option>Engineer</option>
-              <option>Analyst</option>
-              <option>Consultant</option>
-            </select>
-          </div> */}
+          {/* 
+            <div className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 shadow-sm">
+              <label
+                htmlFor="category-filter"
+                className="text-sm font-medium text-muted-foreground"
+              >
+                Category:
+              </label>
+              <select
+                id="category-filter"
+                className="rounded-md w-full border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                disabled
+              >
+                <option>All</option>
+                <option>Engineer</option>
+                <option>Analyst</option>
+                <option>Consultant</option>
+              </select>
+            </div> */}
+
           {/* Status filter mockup */}
           {/* <div className="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2 shadow-sm">
-            <label
-              htmlFor="status-filter"
-              className="text-sm font-medium text-muted-foreground"
-            >
-              Status:
-            </label>
-            <select
-              id="status-filter"
-              className="rounded-md w-full border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-              disabled
-            >
-              <option>All</option>
-              <option>Approved</option>
-              <option>Pending</option>
-              <option>Denied</option>
-            </select>
+              <label
+                htmlFor="status-filter"
+                className="text-sm font-medium text-muted-foreground"
+              >
+                Status:
+              </label>
+              <select
+                id="status-filter"
+                className="rounded-md w-full border border-border bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                disabled
+              >
+                <option>All</option>
+                <option>Approved</option>
+                <option>Pending</option>
+                <option>Denied</option>
+              </select>
+            </div>
           </div> */}
-          {/* </div>   */}
 
           {/* Table container with horizontal scroll */}
           <div className="w-full overflow-x-auto">
@@ -193,17 +195,15 @@ export default function ExperiencesPage() {
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
                     Port of Entry
                   </th>
-                  <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Entry Experience
-                  </th>
+
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
                     Status
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Crossed
+                    Date of Crossing
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Processing Time
+                    Processing Time (hrs)
                   </th>
                 </tr>
               </thead>
@@ -214,22 +214,12 @@ export default function ExperiencesPage() {
                       className="px-4 py-3 text-center align-middle"
                       style={{ fontSize: "1.5em" }}
                     >
-                      {exp.nationality}
+                      {exp.nationalityIcon}
                     </td>
                     <td className="px-4 py-3">{exp.tnCategory}</td>
                     <td className="px-4 py-3">{exp.jobTitle}</td>
                     <td className="px-4 py-3">{exp.portOfEntry}</td>
-                    <td className="px-4 py-3 text-center align-middle">
-                      {exp.entryExperience === "up" ? (
-                        <div className="mx-auto flex items-center justify-center w-8 h-8 rounded-full bg-green-100/20 border border-green-300/30 shadow">
-                          👍
-                        </div>
-                      ) : (
-                        <div className="mx-auto flex items-center justify-center w-8 h-8 rounded-full bg-red-100/20 border border-red-300/30 shadow">
-                          👎
-                        </div>
-                      )}
-                    </td>
+
                     <td className="px-4 py-3">
                       <span
                         className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
@@ -244,9 +234,11 @@ export default function ExperiencesPage() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-center align-middle">
-                      {exp.crossed}
+                      {exp.crossingDate}
                     </td>
-                    <td className="px-4 py-3">{exp.processingTime}</td>
+                    <td className="px-4 py-3 text-center align-middle">
+                      {exp.processingTime}
+                    </td>
                   </tr>
                 ))}
               </tbody>
