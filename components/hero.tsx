@@ -74,8 +74,12 @@ export default function Hero() {
               className="bg-primary text-white hover:bg-primary/90 transition-all shimmer-highlight shimmer-animate"
               asChild
             >
-              <Link href="#waitlist" ref={waitlistRef}>
-                Join waitlist
+              <Link
+                href="https://docs.google.com/forms/d/e/1FAIpQLSc4sbPhj8ZLcShXSsKTDxMBMuR-0d2GvfqrvsTyHM1MktJ7kQ/viewform?usp=header"
+                target="_blank"
+                ref={waitlistRef}
+              >
+                Share your experience
               </Link>
             </Button>
             <Button

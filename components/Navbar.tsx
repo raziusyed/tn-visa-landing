@@ -62,10 +62,10 @@ export default function Navbar() {
             asChild
           >
             <a
-              href="/#waitlist"
-              onClick={(e) => handleNavClick(e, "#waitlist")}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc4sbPhj8ZLcShXSsKTDxMBMuR-0d2GvfqrvsTyHM1MktJ7kQ/viewform?usp=header"
+              target="_blank"
             >
-              Join waitlist
+              Share your experience
             </a>
           </Button>
           <a
@@ -120,10 +120,10 @@ export default function Navbar() {
                       asChild
                     >
                       <a
-                        href="/#waitlist"
-                        onClick={(e) => handleNavClick(e, "#waitlist")}
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSc4sbPhj8ZLcShXSsKTDxMBMuR-0d2GvfqrvsTyHM1MktJ7kQ/viewform?usp=header"
+                        target="_blank"
                       >
-                        Join waitlist
+                        Share your experience
                       </a>
                     </Button>
                     <a
