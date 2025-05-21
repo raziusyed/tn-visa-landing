@@ -54,6 +54,9 @@ export default function Navbar() {
           >
             TN Connect
           </Link>
+          <div className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
+            Beta
+          </div>
         </div>
         {/* Desktop Nav */}
         <nav className="hidden sm:flex items-center space-x-6">

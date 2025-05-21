@@ -1,6 +1,6 @@
-import WaitlistForm from "@/components/waitlist-form";
+import MailinglistForm from "@/components/mailinglist-form";
 
-export default function WaitlistSection() {
+export default function MailinglistSection() {
   return (
     <section
       id="waitlist"
@@ -12,14 +12,14 @@ export default function WaitlistSection() {
       <div className="container relative z-10">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight sm:text-4xl">
-            Join our waitlist
+            Join the network
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Be the first to know when we launch. Get early access to our
-            platform.
+            Subscribe to receive updates about new features, TN visa insights,
+            and community developments.
           </p>
           <div className="mt-8">
-            <WaitlistForm />
+            <MailinglistForm />
           </div>
         </div>
       </div>

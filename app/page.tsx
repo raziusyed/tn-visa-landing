@@ -1,12 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import Hero from "@/components/hero";
 import Features from "@/components/features";
-import WaitlistForm from "@/components/waitlist-form";
-import WaitlistSection from "@/components/waitlist-section";
+import MailinglistSection from "@/components/mailinglist-section";
 
 export default function LandingPage() {
   return (
@@ -14,7 +10,7 @@ export default function LandingPage() {
       <main className="flex-1">
         <Hero />
         <Features />
-        <WaitlistSection />
+        <MailinglistSection />
       </main>
     </div>
   );
