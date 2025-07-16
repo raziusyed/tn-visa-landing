@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,39 +9,10 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
-  const router = useRouter();
   const [open, setOpen] = useState(false);
-
-  // Handles smooth scrolling with sticky offset for in-page anchors
-  const handleNavClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
-      // Only handle if it's an in-page anchor
-      if (window.location.pathname === "/" && hash.startsWith("#")) {
-        e.preventDefault();
-        const target = document.querySelector(hash);
-        if (target) {
-          const yOffset = 100; // Height of sticky header
-          const y =
-            target.getBoundingClientRect().top + window.scrollY - yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
-          // Optionally remove hash from URL for a cleaner look
-          window.history.replaceState(null, "", window.location.pathname);
-        }
-        setOpen(false);
-      } else if (hash.startsWith("/#")) {
-        // Navigating to home with anchor from another page
-        e.preventDefault();
-        router.push(`/${hash}`);
-        setOpen(false);
-        // The scroll will be handled after navigation by browser
-      }
-      // Otherwise, let default behavior happen
-    },
-    [router]
-  );
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-sm">
@@ -64,30 +34,32 @@ export default function Navbar() {
             className="bg-primary text-white hover:bg-primary/90 transition-all shimmer-highlight shimmer-animate shadow-md hover:shadow-lg hover:shadow-primary/30"
             asChild
           >
-            <a
+            <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSc4sbPhj8ZLcShXSsKTDxMBMuR-0d2GvfqrvsTyHM1MktJ7kQ/viewform?usp=header"
+              // className="bg-primary text-white hover:bg-primary/90 transition-all shimmer-highlight shimmer-animate shadow-md hover:shadow-lg hover:shadow-primary/30"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Share your experience
-            </a>
+            </Link>
           </Button>
-          <a
+          <Link
             href="/#features"
             className="text-sm font-medium hover:text-primary transition-colors"
-            onClick={(e) => handleNavClick(e, "#features")}
+            // onClick={(e) => handleNavClick(e, "#features")}
           >
             Features
-          </a>
+          </Link>
           <div className="relative flex">
             <span className="absolute -top-3 -left-4 bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md animate-pulse">
               NEW
             </span>
-            <a
+            <Link
               href="/experiences"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
               Experiences
-            </a>
+            </Link>
           </div>
         </nav>
         {/* Mobile Nav - Hamburger */}
@@ -122,28 +94,28 @@ export default function Navbar() {
                       className="bg-primary text-white hover:bg-primary/90 transition-all shimmer-highlight shimmer-animate shadow-md hover:shadow-lg hover:shadow-primary/30"
                       asChild
                     >
-                      <a
+                      <Link
                         href="https://docs.google.com/forms/d/e/1FAIpQLSc4sbPhj8ZLcShXSsKTDxMBMuR-0d2GvfqrvsTyHM1MktJ7kQ/viewform?usp=header"
                         target="_blank"
                       >
                         Share your experience
-                      </a>
+                      </Link>
                     </Button>
-                    <a
+                    <Link
                       href="/#features"
                       className="text-base font-medium hover:text-primary transition-colors"
-                      onClick={(e) => handleNavClick(e, "#features")}
+                      onClick={() => setOpen(false)}
                     >
                       Features
-                    </a>
+                    </Link>
                     <div className="flex items-center gap-2">
-                      <a
+                      <Link
                         href="/experiences"
                         className="text-base font-medium hover:text-primary transition-colors"
                         onClick={() => setOpen(false)}
                       >
                         Experiences
-                      </a>
+                      </Link>
                       <span className="flex items-center justify-center bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md animate-pulse">
                         NEW
                       </span>
