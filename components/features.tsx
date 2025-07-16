@@ -73,7 +73,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative min-h-screen py-12 bg-background"
+      className="relative min-h-screen py-24 bg-background"
     >
       <div className="container">
         <motion.div
